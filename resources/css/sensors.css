@@ -11,8 +11,11 @@ html {
     padding-bottom: 20px;
 }
 
+#chart-mq2,
 #chart-mq3,
-#chart-mq5 {
+#chart-mq5,
+#chart-mq8,
+#chart-mq135 {
     width: 100%;
     display: flex;
     align-items: center;
