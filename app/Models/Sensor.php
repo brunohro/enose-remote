@@ -11,9 +11,22 @@ class Sensor extends Model
 {
     use HasFactory;
 
+    // Quais campos podem ser preenchidos via mass assignment
     protected $fillable = [
+        'percent_mq2',
         'percent_mq3',
-        'percent_mq5'
+        'percent_mq5',
+        'percent_mq8',
+        'percent_mq135',
+    ];
+
+    // Definindo os casts para garantir o tipo float nos atributos
+    protected $casts = [
+        'percent_mq2' => 'float',
+        'percent_mq3' => 'float',
+        'percent_mq5' => 'float',
+        'percent_mq8' => 'float',
+        'percent_mq135' => 'float',
     ];
 
     /**
@@ -21,11 +34,13 @@ class Sensor extends Model
      */
     public static function getAvailableDays()
     {
-        return Sensor::selectRaw('DATE(created_at) as day')
-            ->groupBy('day')
-            ->orderBy('day', 'desc')
-            ->get()
-            ->pluck('day');
+        // return Sensor::selectRaw('DATE(created_at) as day')
+        //     ->groupBy('day')
+        //     ->orderBy('day', 'desc')
+        //     ->get()
+        //     ->pluck('day');
+
+        return collect([Carbon::now()->toDateString()]);
     }
 
     /**

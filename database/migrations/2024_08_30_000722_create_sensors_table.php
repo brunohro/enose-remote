@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('sensors', function (Blueprint $table) {
             $table->id();
-            $table->float("percent_mq3", 5, 2);
-            $table->float("percent_mq5", 5, 2);
+            $table->float("percent_mq2", 5, 2)->nullable();
+            $table->float("percent_mq3", 5, 2)->nullable();
+            $table->float("percent_mq5", 5, 2)->nullable();
+            $table->float("percent_mq8", 5, 2)->nullable();
+            $table->float("percent_mq135", 5, 2)->nullable();
             $table->timestamps();
         });
     }
